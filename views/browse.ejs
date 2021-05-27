@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YORO - Browse</title>
+
+    <script src="/index.js"></script>
+</head>
+<body>
+    <h1>Browse books</h1>
+    <ul>
+        <li> <a href="/">Home</a> </li>
+        <li> <a href="/browse">Browse books</a> </li>
+        <li> <a href="/add">Add book</a> </li>
+    </ul>
+
+    <form action="/browse" method="POST">
+        Search for keyword:
+        <input type="text" placeholder="Enter a book's title" name="keyword">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>List of all books:</h3>
+    <table border="1">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Delete</th>
+        </tr>
+        <% for (let i = 0; i < books.length; i++) 
+        {%>
+        <tr>
+            <td><%= books[i].ISBN %></td>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].price %></td>
+            <td><%= books[i].availability %></td>
+            <td><button onclick="deleteBook('<%= books[i].ISBN%>')">Delete</button></td>
+        </tr>   
+        <%}
+        %>
+    </table>
+
+</body>
+</html>

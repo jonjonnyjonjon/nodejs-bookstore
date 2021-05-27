@@ -1,0 +1,32 @@
+[
+    {
+        "ISBN": 9781129474251,
+        "title": "SQL in Nutshell",
+        "price": 21.50,
+        "availability": 2
+    },
+    {
+        "ISBN": 9781349471231,
+        "title": "Understanding People",
+        "price": 99.40,
+        "availability": 25
+    },
+    {
+        "ISBN": 9781434474234,
+        "title": "Happy in Workplace",
+        "price": 94,
+        "availability": 1
+    },
+    {
+        "ISBN": 9781442374221,
+        "title": "PHP Soup",
+        "price": 20.5,
+        "availability": 2
+    },
+    {
+        "ISBN": 9781449474211,
+        "title": "Brief History of Time",
+        "price": 20,
+        "availability": 23
+    }
+]

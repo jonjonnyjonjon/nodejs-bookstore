@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YORO - Add a book</title>
+</head>
+<body>
+    <h1> Add a book </h1>
+    <ul>
+        <li> <a href="/">Home</a> </li>
+        <li> <a href="/browse">Browse books</a> </li>
+        <li> <a href="/add">Add book</a> </li>
+    </ul>
+
+    <form action="/add" method="POST">
+        <h3>Add a book to inventory</h3>
+        <table>
+            <tr>
+                <td>ISBN:</td>
+                <td><input type="text" name="ISBN"></td>
+            </tr>
+            <tr>
+                <td>Book title:</td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td>Price per book:</td>
+                <td><input type="text" name="price"></td>
+            </tr>
+            <tr>
+                <td>Availability: </td>
+                <td><input type="text" name="availability"></td>
+            </tr>
+        </table>
+        <button>Add</button>
+    </form>
+
+    <% 
+    if (typeof msg != "undefined") { %>
+        <p><%= msg %></p>
+    <%}
+    %>
+</body>
+</html>
