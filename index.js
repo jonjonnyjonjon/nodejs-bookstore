@@ -62,17 +62,34 @@ app.post("/add", (req, res) => {
         availability: req.body.availability
     })
 
-    let msg = "Add book succesful"
+    let msg = []
     newBook.save((err, user) => {
-        // error handling~
-        console.log(err)
         if (err != null) {
-            msg = "Error adding book, try again later"
+            for (const [key, value] of Object.entries(err.errors)) {
+                msg.push(`Value of ${key} should be ${value.kind}, but a ${value.valueType} is given`) 
+            }
+        } else {
+            msg.push("Book added successfully")
         }
         res.render("addBook.ejs", { msg: msg })
     })
 })
 
+app.get("/update", (req, res) => {
+    Book.findOne({ ISBN: req.query.ISBN }, (err, book) => {
+        res.render("updateBook.ejs", {book: book})
+    })
+})
 
+app.post("/update", (req, res) => {
+    Book.updateOne({
+        ISBN: req.body.ISBN,
+        title: req.body.title,
+        price: req.body.price,
+        availability: req.body.availability
+    })
+        .then(() => { res.redirect("/browse") })
+        .catch(error => console.error(error))
+})
 
 app.listen(3000, () => console.log("Listening to port 3000..."))

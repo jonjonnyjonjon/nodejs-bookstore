@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YORO - Browse</title>
 
-    <script src="/index.js"></script>
+    <script src="/main.js"></script>
 </head>
 <body>
     <h1>Browse books</h1>
@@ -29,6 +29,7 @@
             <th>Title</th>
             <th>Price</th>
             <th>Availability</th>
+            <th>Update</th>
             <th>Delete</th>
         </tr>
         <% for (let i = 0; i < books.length; i++) 
@@ -38,6 +39,7 @@
             <td><%= books[i].title %></td>
             <td><%= books[i].price %></td>
             <td><%= books[i].availability %></td>
+            <td><button><a href="/update?ISBN=<%= books[i].ISBN%>" style="text-decoration: none; color: black;">Update</a></button></td>
             <td><button onclick="deleteBook('<%= books[i].ISBN%>')">Delete</button></td>
         </tr>   
         <%}

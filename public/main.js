@@ -1,6 +1,4 @@
 function deleteBook(delete_isbn) {
-    console.log("deleteBook onclick triggered")
-    console.log(delete_isbn)
     fetch("/browse", {
         method: "delete",
         headers: {
@@ -14,4 +12,15 @@ function deleteBook(delete_isbn) {
         .then(() => {
             window.location.reload()
         })
+}
+
+function updateBook(update_isbn) {
+    console.log("update book button clicked")
+    fetch("/update", {
+        method: "get",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ ISBN: update_isbn })
+    })
 }

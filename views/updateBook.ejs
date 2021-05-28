@@ -4,45 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YORO - Add a book</title>
+    <title>YORO - Update a book</title>
 </head>
 <body>
-    <h1> Add a book </h1>
+    <h1> Update a book </h1>
     <ul>
         <li> <a href="/">Home</a> </li>
         <li> <a href="/browse">Browse books</a> </li>
         <li> <a href="/add">Add book</a> </li>
     </ul>
 
-    <form action="/add" method="POST">
-        <h3>Add a book to inventory</h3>
+    <form action="/update" method="post">
+        <h3>Update a book</h3>
         <table>
             <tr>
                 <td>ISBN:</td>
-                <td><input type="text" name="ISBN"></td>
+                <td><input type="text" name="ISBN" value="<%= book.ISBN %>"></td>
             </tr>
             <tr>
                 <td>Book title:</td>
-                <td><input type="text" name="title"></td>
+                <td><input type="text" name="title" value="<%= book.title %>"></td>
             </tr>
             <tr>
                 <td>Price per book:</td>
-                <td><input type="text" name="price"></td>
+                <td><input type="text" name="price" value="<%= book.price %>"></td>
             </tr>
             <tr>
                 <td>Availability: </td>
-                <td><input type="text" name="availability"></td>
+                <td><input type="text" name="availability" value="<%= book.availability %>"></td>
             </tr>
         </table>
-        <button>Add</button>
+        <button>Update</button>
     </form>
-
-    <% if (typeof msg != "undefined") { %>
-        <ul>
-            <% for (let errMsg of msg) { %>
-                <li><%= errMsg %></li>
-            <% } %>
-        </ul>
-    <% } %>
 </body>
 </html>
